@@ -1,4 +1,4 @@
-//초기 변수 설정
+//초기 변수 설정 
 var numbers=[0,1,2,3,4,5,6,7,8,9],
     balls=[], tries=1,
     el = document.getElementById('board');
