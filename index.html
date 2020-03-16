@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" href="css/index.css"/>
+</head>
+<body>
+<div id="topNav">Baseball Game</div>
+<!-- 야구 게임을 위한 input 태그 그룹-->
+<div id="pitcher">
+    <input type="text" class="inputTag" id="bOne" onkeypress="inNumber()" autofocus/>
+    <input type="text" class="inputTag" id="bTwo" onkeypress="inNumber()"/>
+    <input type="text" class="inputTag" id="bThree" onkeypress="inNumber()"/>
+    <input type="text" class="inputTag" id="bFour" onkeypress="inNumber()"/>
+    <button type="submit" id="pBtn" onclick="pitch()">Pitch!</button>
+    <span id="pitches"></span>
+</div>
+<div id="board">    
+</div>
+<script type="text/javascript" src="js/index.js"></script>
+</body>

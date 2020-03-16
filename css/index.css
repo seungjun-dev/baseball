@@ -1,0 +1,21 @@
+.inputTag {
+    width:50px;
+    height:50px;
+    font-size:50px;
+    text-align: center;
+}
+
+button {
+    width:100px;
+    height:50px;
+    font-size:18px;
+    vertical-align: text-bottom;
+}
+
+#board {
+    margin-top: 10px;
+}
+
+#pitches {
+    font-size:18px;
+}
