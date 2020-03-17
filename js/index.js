@@ -45,6 +45,12 @@ function showResult() {
     pitches.innerHTML = tries;
 }
 
+function emptyInputTag() {
+    for(var i=0; i<tags.length; i++) {
+        tags[i].value='';
+    }
+}
+
 //플레이어가 숫자를 입력 후 pitch 버튼을 누르면 실행되는 함수
 function pitch() {
     var tags = document.getElementsByClassName('inputTag');
@@ -67,7 +73,7 @@ function pitch() {
         state = cnt + "Strike, " + checkBall(tags) + "Ball";
         recordToBoard(tags, state);
     }
-
+    emptyInputTag();
     tries++;
 }
 
