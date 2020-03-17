@@ -1,7 +1,8 @@
 //초기 변수 설정 
 var numbers=[0,1,2,3,4,5,6,7,8,9],
     balls=[], tries=1,
-    el = document.getElementById('board');
+    el = document.getElementById('board'),
+    tags = document.getElementsByClassName('inputTag');;
 
 //숫자만을 받기 위해 ASCII코드 값이 숫자 패드 이외의 값이 눌릴 경우 입력이 되지 않도록 설정
 //ASCII코드 값에 한글 문자는 없기 때문에 해당 부분은 추후 업데이트 필요
@@ -45,9 +46,14 @@ function showResult() {
     pitches.innerHTML = tries;
 }
 
+function emptyInputTag() {
+    for(var i=0; i<tags.length; i++) {
+        tags[i].value='';
+    }
+}
+
 //플레이어가 숫자를 입력 후 pitch 버튼을 누르면 실행되는 함수
 function pitch() {
-    var tags = document.getElementsByClassName('inputTag');
     var state;
     var strike, cnt=0;
 
@@ -67,7 +73,7 @@ function pitch() {
         state = cnt + "Strike, " + checkBall(tags) + "Ball";
         recordToBoard(tags, state);
     }
-
+    emptyInputTag();
     tries++;
 }
 
