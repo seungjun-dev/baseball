@@ -3,17 +3,27 @@
     <link rel="stylesheet" href="css/index.css"/>
 </head>
 <body>
-<div id="topNav">Baseball Game</div>
-<!-- 야구 게임을 위한 input 태그 그룹-->
-<div id="pitcher">
-    <input type="text" class="inputTag" id="bOne" onkeypress="inNumber()" autofocus/>
-    <input type="text" class="inputTag" id="bTwo" onkeypress="inNumber()"/>
-    <input type="text" class="inputTag" id="bThree" onkeypress="inNumber()"/>
-    <input type="text" class="inputTag" id="bFour" onkeypress="inNumber()"/>
-<button type="submit" id="pBtn" onclick="pitch()">Pitch!</button>
-    <span id="pitches"></span>
-</div>
-<div id="board">    
+<div id="wrapper">
+    <div id="divLeft">
+        <div id="wrapper-left">
+            <div id="title">Baseball Game</div>
+            <!-- 야구 게임을 위한 input 태그 그룹-->
+            <div id="pitcher">
+                <input type="text" class="inputTag" maxlength="1" id="bOne" onkeypress="return fn_press(event, 'numbers');" onkeydown="fn_press_han(this);" style="ime-mode:disabled;" autofocus/>
+                <input type="text" class="inputTag" maxlength="1" id="bTwo" onkeypress="return fn_press(event, 'numbers');" onkeydown="fn_press_han(this);" style="ime-mode:disabled;"/>
+                <input type="text" class="inputTag" maxlength="1" id="bThree" onkeypress="return fn_press(event, 'numbers');" onkeydown="fn_press_han(this);" style="ime-mode:disabled;"/>
+                <input type="text" class="inputTag" maxlength="1" id="bFour" onkeypress="return fn_press(event, 'numbers');" onkeydown="fn_press_han(this);" style="ime-mode:disabled;"/>
+                <button type="submit" id="pBtn" onclick="pitch()">Pitch!</button>
+                <button typer="submit" id="rBtn" onclick="restart()">Restart!</button>
+            </div>
+            <div id="board">   
+            </div> 
+            <span id="pitches"></span>
+        </div>
+    </div>
+    <div id="divRight">
+            
+    </div>
 </div>
 <script type="text/javascript" src="js/index.js"></script>
 </body>
