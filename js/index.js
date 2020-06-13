@@ -6,15 +6,26 @@ var numbers=[0,1,2,3,4,5,6,7,8,9],
 
 //숫자만을 받기 위해 ASCII코드 값이 숫자 패드 이외의 값이 눌릴 경우 입력이 되지 않도록 설정
 //ASCII코드 값에 한글 문자는 없기 때문에 해당 부분은 추후 업데이트 필요
-function inNumber(){
-    if(event.keyCode<48 || event.keyCode>57){
-        event.returnValue=false;
+function fn_press(event, type) {
+    if(type == "numbers") {
+        if(event.keyCode < 48 || event.keyCode > 57) return false;
+        //onKeyDown일 경우 좌, 우, tab, backspace, delete키 허용 정의 필요
     }
+}
+
+/* 한글입력 방지 */
+function fn_press_han(obj)
+{
+    //좌우 방향키, 백스페이스, 딜리트, 탭키에 대한 예외
+    if(event.keyCode == 8 || event.keyCode == 9 || event.keyCode == 37 || event.keyCode == 39
+    || event.keyCode == 46 ) return;
+    //obj.value = obj.value.replace(/[\a-zㄱ-ㅎㅏ-ㅣ가-힣]/g, '');
+    obj.value = obj.value.replace(/[\ㄱ-ㅎㅏ-ㅣ가-힣]/g, '');
 }
 
 //게임의 진행 상황을 볼 수 있도록 게임 보드에 기록 추가
 function recordToBoard(tags, state) {
-    el.innerHTML += "<span>"+tags[0].value+""+tags[1].value+""+tags[2].value+""+tags[3].value+"</span>\t\t<span><b>"+state+"</b></span><br>";
+    el.innerHTML += "<span class='scores'>"+tags[0].value+""+tags[1].value+""+tags[2].value+""+tags[3].value+"</span>\t\t<span class='scores'><b>"+state+"</b></span><br>";
 }
 
 //플레이어가 추측한 숫자 중에 볼이 있는지 확인
@@ -66,6 +77,8 @@ function pitch() {
     if(cnt==4){
         state = "You Win!";        
         recordToBoard(tags, state);
+        document.getElementById("pBtn").setAttribute("style","display:none");
+        document.getElementById("rBtn").setAttribute("style","display:block");
         alert(state);
         showResult();
     } else {
@@ -79,6 +92,10 @@ function pitch() {
 
 //init 함수. 야구게임 시작 전 숫자를 세팅한다.
 function init() {
+    el.innerHTML="";
+    pitches.innerHTML="";
+    document.getElementById("pBtn").setAttribute("style","display:block");
+    document.getElementById("rBtn").setAttribute("style","display:none");
     var idx;
     for(var i=0; i<4; i++){
         idx=Math.floor(Math.random() * numbers.length);
@@ -86,6 +103,10 @@ function init() {
         numbers.splice(idx,1);
     }
     //showNumbers();
+}
+
+function restart() {
+    init();
 }
 
 /*function showNumbers(){
