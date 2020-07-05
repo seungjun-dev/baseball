@@ -20,7 +20,7 @@ function fn_press_han(obj)
     if(event.keyCode == 8 || event.keyCode == 9 || event.keyCode == 37 || event.keyCode == 39
     || event.keyCode == 46 ) return;
     //obj.value = obj.value.replace(/[\a-zㄱ-ㅎㅏ-ㅣ가-힣]/g, '');
-    obj.value = obj.value.replace(/[\ㄱ-ㅎㅏ-ㅣ가-힣]/g, '');
+    obj.value = obj.value.replace(/[ㄱ-ㅎㅏ-ㅣ가-힣]/g, '');
 }
 
 //게임의 진행 상황을 볼 수 있도록 게임 보드에 기록 추가
