@@ -18,15 +18,15 @@
 }
 
 .inputTag { 
-    width:75px;
-    height:75px;
-    font-size:75px;
+    width:65px;
+    height:65px;
+    font-size:65px;
     text-align: center;
 }
 
 button {
-    width:100px;
-    height:80px;
+    width:80px;
+    height:70px;
     font-size:18px;
     vertical-align: text-bottom;
     margin-left: 5px;
